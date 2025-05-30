@@ -1,4 +1,4 @@
-from flask import Blueprint
+from flask import Blueprint, render_template
 
 auth = Blueprint('auth', __name__)
 
@@ -10,9 +10,9 @@ def logout():
 # Signin logic
 @auth.route('/signin')
 def signin():
-    pass
+    return render_template('auth/signin.html')
 
 # Signup logic
 @auth.route('/signup')
 def signup():
-    pass
+    return render_template('auth/signup.html')
