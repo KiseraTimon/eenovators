@@ -1,0 +1,47 @@
+<!--Template Reference-->
+{% extends 'template.html' %}
+
+<!--Document Title-->
+{% block title%}
+Welcome Back
+{% endblock %}
+
+<!--Independent CSS-->
+{% block css %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/auth/auth.css') }}">
+{% endblock %}
+
+<!--Header-->
+{% block header%}
+{% endblock %}
+
+<!--Body ID-->
+{% block bodyid %}
+id="body3"
+{% endblock %}
+
+<!--Page Body-->
+{% block body %}
+<div class="box-container">
+    <div class="content">
+    <h1>Verify your account</h1>
+    <p>An email has been sent to your email <b>'{{email}}'</b></p>
+    <form action="/verifier" method="POST">
+        <div class="input__group">
+            <label for="code">Verification Code</label>
+            <input type="number" placeholder="e.g 123456" name="code"/>
+        </div>
+
+        <button type="submit">Verify</button>
+    </form>
+    </div>
+</div>
+{% endblock %}
+
+<!--Footer-->
+{% block footer %}
+{% endblock %}
+
+<!--Independent JS-->
+<!-- {% block js %}
+{% endblock %} -->

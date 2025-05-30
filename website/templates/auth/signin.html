@@ -1,0 +1,58 @@
+<!--Template Reference-->
+{% extends 'template.html' %}
+
+<!--Document Title-->
+{% block title%}
+Welcome Back
+{% endblock %}
+
+<!--Independent CSS-->
+{% block css %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/auth/auth.css') }}">
+{% endblock %}
+
+<!--Header-->
+{% block header%}
+{% endblock %}
+
+<!--Body ID-->
+{% block bodyid %}
+id="body1"
+{% endblock %}
+
+<!--Page Body-->
+{% block body %}
+<div class="box-container">
+    <div class="content">
+    <h1>Welcome Back</h1>
+    <p>Please enter your details to continue</p>
+    <form action="/signin" method="POST">
+        <div class="input__group">
+            <label for="uname">Username</label>
+            <input type="text" placeholder="e.g johndoey" name="uname"/>
+        </div>
+        <div class="input__group">
+            <label for="password">Password</label>
+            <input type="password" placeholder="Enter your password" name="password"/>
+        </div>
+        <!-- <div class="actions">
+        <div>
+            <input type="checkbox" />
+            <span>Remember me</span>
+        </div>
+        <a href="#">Forgot your password?</a>
+        </div> -->
+        <button type="submit">Log In</button>
+    </form>
+    <p>Don't have an account? <a href="/signup">Register here</a></p>
+    </div>
+</div>
+{% endblock %}
+
+<!--Footer-->
+{% block footer %}
+{% endblock %}
+
+<!--Independent JS-->
+<!-- {% block js %}
+{% endblock %} -->
