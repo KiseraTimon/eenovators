@@ -1,5 +1,6 @@
 # Modules
 from flask import Flask
+from .config import env
 
 def create_app():
 
@@ -7,13 +8,12 @@ def create_app():
     app = Flask(__name__)
 
     # Configuring secret key
-    app.config['SECRET_KEY'] = 'testapp'
+    app.config['SECRET_KEY'] = env.SECRET_KEY
 
     # Importing blueprints
     from .auth import auth
     from .processes import processes
     from .views import views
-    # from .dashboard import dashboard
 
     # Registering blueprints
     app.register_blueprint(views, url_prefix='/')
