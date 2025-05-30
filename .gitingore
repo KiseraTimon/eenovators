@@ -1,0 +1,15 @@
+.venv/
+.vscode
+
+__pycache__/
+**/__pycache__/
+
+logs/*
+!logs/err_logs/
+!logs/err_logs/**
+
+website/config/*
+!website/config/env_example.py
+
+website/database/*
+!website/database/connector_example.py
