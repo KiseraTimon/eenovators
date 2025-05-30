@@ -1,9 +1,16 @@
-# Modules
-from website import create_app
+# Custom Error Handling Module
+from utils import errhandler
 
-# Initializing Application
-app = create_app()
+try:
+    # Importing App Initializer
+    from website import create_app
 
-# Starting Application Server
-if __name__ == '__main__':
-    app.run(debug=True, port=9090)
+    # Initializing Application
+    app = create_app()
+
+    # Starting Application Server
+    if __name__ == '__main__':
+        app.run(debug=True, port=9090)
+
+except Exception as e:
+    errhandler(e, 'main')
