@@ -13,4 +13,4 @@ try:
         app.run(debug=True, port=8080)
 
 except Exception as e:
-    errhandler(e, 'main')
+    errhandler(e, 'main/main')
