@@ -1,0 +1,45 @@
+{% extends 'template.html' %} {% block title %} Registers {% endblock %} {%
+block body %}
+
+<h1>Current Register Rates as of {{ init_time }} (meter time)</h1>
+<table border="1" cellpadding="8">
+  <thead>
+    <tr>
+      <th>Register</th>
+      <th>Value</th>
+      <th>Unit</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for name, data in initials.items() %}
+    <tr>
+      <td>{{ name }}</td>
+      <td>{{ data.value }}</td>
+      <td>{{ data.unit }}</td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+
+<h1 style="margin-top: 2em">Change Since {{ delta_time }} (start of month)</h1>
+<table border="1" cellpadding="8">
+  <thead>
+    <tr>
+      <th>Register</th>
+      <th>Accumulated</th>
+      <th>Average</th>
+      <th>Unit</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for name, data in deltas.items() %}
+    <tr>
+      <td>{{ name }}</td>
+      <td>{{ data.accumulated }}</td>
+      <td>{{ data.average }}</td>
+      <td>{{ data.unit }}</td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+{% endblock %}
