@@ -1,0 +1,125 @@
+<!--Template Reference-->
+{% extends 'template.html' %}
+
+<!--Document Title-->
+{% block title%}
+Ennovate
+{% endblock %}
+
+<!--Independent CSS-->
+{% block css %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/auth/auth.css') }}">
+{% endblock %}
+
+<!--Page Body-->
+{% block body %}
+<!--Services-->
+<h2 class="section-header">Services</h2>
+<section id="services" class="division">
+  <div class="services">
+    <div class="left-section">
+  
+      <!--Overview-->
+      <div class="component-img">
+        <img src="{{ url_for('static', filename='images/home/services/service1.png') }}" alt="Overview">
+      </div>
+  
+      <!--Training-->
+      <div class="component-img">
+       <img src="{{ url_for('static', filename='images/home/services/service2.png') }}" alt="Overview">
+      </div>
+  
+      <!--Projects-->
+      <div class="component-img">
+        <img src="{{ url_for('static', filename='images/home/services/service3.png') }}" alt="Overview">
+      </div>
+  
+      <!--Financing-->
+      <div class="component-img">
+        <img src="{{ url_for('static', filename='images/home/services/service4.png') }}" alt="Overview">
+      </div>
+    </div>
+    <div class="right-section">
+  
+      <!--Overview-->
+      <div class="component-text">
+        <div class="text-head">
+          <h2>Overview</h2>
+        </div>
+        <div class="text-body">
+          <p>Eenovators has amassed over 10 years of experience offering energy services across the East African region. Our services include energy audits, real-time energy monitoring, energy consultancy services and water audits. We have conducted over 500 audits across multiple industries and been involved in numerous energy consultancy projects. We have over 50 years of combined experience from our professional experts, we offer customized solutions to ensure that every client’s needs are uniquely met</p>
+        </div>
+        <div class="text-cta">
+          <button>Learn more</button>
+        </div>
+      </div>
+  
+      <!--Training-->
+      <div class="component-text">
+        <div class="text-head">
+          <h2>Training</h2>
+        </div>
+        <div class="text-body">
+          <p>Eenovators offers energy management training aimed at equipping energy professionals with holistic energy management skills relevant to the market, as well as to create awareness of energy management amongst the public. Eenovators’ training programmes endeavor to offer value addition for participants through capacity building on energy efficiency. Eenovators training programmes are internationally recognized and certified and are facilitated by a qualified team of energy experts both local and global.From experience conducting energy audits and projects in the region, Eenovators has identified key areas that require technical upskilling to enable efficiency strategies and skilled energy-focused competencies within organizations</p>
+        </div>
+        <div class="text-cta">
+          <button>Learn more</button>
+        </div>
+      </div>
+  
+      <!--Projects-->
+      <div class="component-text">
+        <div class="text-head">
+          <h2>Projects</h2>
+        </div>
+        <div class="text-body">
+          <p>Eenovators boasts of a record of project implementation both energy efficiency including Lighting retrofits, voltage optimization, heat pump installations, VSD installations among others; and renewable energy projects including solar PV, solar thermal and solar water pumping projects. Eenovators has an extensive project pipeline in Kenya after years of carrying out energy audits for all kinds of industries. Eenovators also has the requisite expertise to undertake energy projects when contracted in a way that assures client satisfaction and energy savings.</p>
+        </div>
+        <div class="text-cta">
+          <button>Learn more</button>
+        </div>
+      </div>
+  
+      <!--Financing-->
+      <div class="component-text">
+        <div class="text-head">
+          <h2>Financing</h2>
+        </div>
+        <div class="text-body">
+          <p>Eenovators is an Energy Service Company (ESCO) that provides energy solutions to clients which include planning, design, implementation and monitoring as well as financing of power supply and energy efficiency projects and measures. Eenovators utilises the guaranteed savings model where we implement the project at zero cost to the client and cover the repayments from the energy savings emerging post-implementation. Eenovators as an ESCO takes over financial and technical risks of implementation and operation of the entire project thus leaving the client to focus on their core business and still enjoy reduce energy costs with little to no capital investment.</p>
+        </div>
+        <div class="text-cta">
+          <button>Learn more</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!--Partners-->
+<h2 class="section-header">Partners</h2>
+<section id="partners" class="division">
+  <div class="partners">
+    <div class="partner-logos">
+      <div class="partner-logo">
+        <img src="{{ url_for('static', filename='images/home/partners/partner1.png') }}" alt="Partner 1">
+      </div>
+      <div class="partner-logo">
+        <img src="{{ url_for('static', filename='images/home/partners/partner2.png') }}" alt="Partner 2">
+      </div>
+      <div class="partner-logo">
+        <img src="{{ url_for('static', filename='images/home/partners/partner3.png') }}" alt="Partner 3">
+      </div>
+      <div class="partner-logo">
+        <img src="{{ url_for('static', filename='images/home/partners/partner4.png') }}" alt="Partner 4">
+      </div>
+      <div class="partner-logo">
+        <img src="{{ url_for('static', filename='images/home/partners/partner5.png') }}" alt="Partner 5">
+      </div>
+      <!-- <div class="partner-logo">
+        <img src="{{ url_for('static', filename='images/home/partners/partner6.png') }}" alt="Partner 6">
+      </div> -->
+    </div>
+  </div>
+</section>
+{% endblock %}
