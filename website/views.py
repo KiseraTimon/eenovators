@@ -4,6 +4,9 @@ views = Blueprint('views', __name__)
 
 @views.route('/')
 def homepage():
+    userID = session.get('userID')
+    if (userID) and (userID != "None"):
+        return render_template("home/index.html", userID=userID)
     return render_template("home/index.html")
 
 # Under construction pages
