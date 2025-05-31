@@ -25,8 +25,12 @@ def newsletter():
             cursor = conn.cursor()
 
             # Checking If The Email Already Exists
-            cursor.execute("SELECT * FROM newsletters WHERE email = %s", (email,))
+            cursor.execute("SELECT email FROM newsletters WHERE email = %s", (email,))
             accounts = cursor.fetchone()
+
+            # Checking if Email is Associated With an Active Account
+            cursor.execute("SELECT email FROM users WHERE email = %s", (email,))
+            profile = cursor.fetchone()
 
             if accounts and accounts != None:
                 # Error Message
@@ -35,8 +39,13 @@ def newsletter():
                 # Redirecting
                 return redirect(url_for(request.url))
 
+            if profile and profile != None:
+                user = True
+            else:
+                user = False
+
             # Inserting Email Into Database
-            cursor.execute("INSERT INTO newsletters (email) VALUES (%s)", (email,))
+            cursor.execute("INSERT INTO newsletters (email, user) VALUES (%s, %s)", (email, user))
             conn.commit()
 
             #Success Message
