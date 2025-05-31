@@ -14,10 +14,12 @@ def create_app():
     from .auth import auth
     from .processes import processes
     from .views import views
+    from .dashboard import dashboard
 
     # Registering blueprints
     app.register_blueprint(views, url_prefix='/')
     app.register_blueprint(auth, url_prefix='/')
     app.register_blueprint(processes, url_prefix='/')
+    app.register_blueprint(dashboard, url_prefix='/')
 
     return app
