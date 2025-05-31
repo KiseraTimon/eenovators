@@ -269,6 +269,7 @@ By the end of the setup, your project directories should look like this:
 ## Acknowledgements
 
 [eGauge Systems](https://www.egauge.net/)
+
 [eenovators](https://eenovators.com/)
 
 ## Assets
