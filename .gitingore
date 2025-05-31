@@ -4,10 +4,6 @@
 __pycache__/
 **/__pycache__/
 
-logs/*
-!logs/err_logs/
-!logs/err_logs/**
-
 website/config/*
 !website/config/env_example.py
 
