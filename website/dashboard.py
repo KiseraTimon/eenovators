@@ -10,6 +10,33 @@ dashboard = Blueprint('dashboard', __name__)
 # Database Connection
 conn = dbconnector()
 
+@dashboard.route('/dashboard')
+def dashboard():
+    try:
+        # Check if user is logged in
+        if 'user_id' not in session:
+            flash("You are not authorized to access this page", category="error")
+            return redirect(url_for('views.homepage'))
+
+        # Capture Role
+        role = session.get('role')
+
+        # Render appropriate dashboard based on user role
+        if role == 'staff':
+            return redirect(url_for('dashboard.staff'))
+        elif role == 'admin':
+            return redirect(url_for('dashboard.admin'))
+        elif role == 'user':
+            pass
+        else:
+            flash("You are not authorized to access this page", category="error")
+            return redirect(url_for('views.homepage'))
+
+    except Exception as e:
+        flash("An error occurred while accessing your dashboard", category="error")
+        errhandler(e, "processes/dashboard")
+        return redirect(url_for('views.homepage'))
+
 # Staff dashboard route
 @dashboard.route('/staff')
 def staff():
