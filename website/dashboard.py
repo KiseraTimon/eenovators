@@ -10,11 +10,12 @@ dashboard = Blueprint('dashboard', __name__)
 # Database Connection
 conn = dbconnector()
 
+# Role Access Check
 @dashboard.route('/dashboard')
-def dashboard():
+def role_access():
     try:
         # Check if user is logged in
-        if 'user_id' not in session:
+        if 'userID' not in session:
             flash("You are not authorized to access this page", category="error")
             return redirect(url_for('views.homepage'))
 
@@ -25,7 +26,7 @@ def dashboard():
         if role == 'staff':
             return redirect(url_for('dashboard.staff'))
         elif role == 'admin':
-            return redirect(url_for('dashboard.admin'))
+            pass
         elif role == 'user':
             pass
         else:
@@ -37,9 +38,25 @@ def dashboard():
         errhandler(e, "processes/dashboard")
         return redirect(url_for('views.homepage'))
 
+    return redirect(url_for('views.homepage'))
+
 # Staff dashboard route
 @dashboard.route('/staff')
 def staff():
+    #Access Validation
+    if 'userID' not in session or session.get('role') != 'staff':
+        flash("You are not authorized to access this page", category="error")
+        return redirect(url_for('views.homepage'))
+
+    # Extracting Session Data
+    user = {
+        'userID' : session.get('userID'),
+        'fname' : session.get('fname'),
+        'lname' : session.get('lname'),
+        'email' : session.get('email'),
+        'role' : session.get('role')
+    }
+
     try:
         # Imports
         import argparse
@@ -114,6 +131,7 @@ def staff():
 
         return render_template(
             'dashboard/staff.html',
+            user = user,
             init_time = init_time_str,
             delta_time = delta_time_str,
             initials = initial_rates,

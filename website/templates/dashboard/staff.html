@@ -27,8 +27,8 @@ Staff Dashboard
       <img src="{{ url_for('static', filename='images/dashboard/staff/user1.png') }}" alt="User Image">
     </div>
     <div class="user-info">
-      <h2>Engineer I</h2>
-      <p>engineer@gmail.com</p>
+      <h2>{{user.fname}} {{user.lname}}</h2>
+      <p>{{user.email}}</p>
     </div>
   </div>
   <div class="dash-note">
