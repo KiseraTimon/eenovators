@@ -1,0 +1,151 @@
+<!--Template Reference-->
+{% extends 'template.html' %}
+
+<!--Document Title-->
+{% block title%}
+Staff Dashboard
+{% endblock %}
+
+<!--Independent CSS-->
+{% block css %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/dashboard/staff.css') }}">
+{% endblock %}
+
+<!--Body ID-->
+<!-- {% block bodyid %}
+{% endblock %} -->
+
+<!--Header-->
+{% block header%}
+{% endblock %}
+
+<!--Page Body-->
+{% block body %}
+<section class="staff">
+  <div class="dash-user">
+    <div class="user-image">
+      <img src="{{ url_for('static', filename='images/dashboard/staff/user1.png') }}" alt="User Image">
+    </div>
+    <div class="user-info">
+      <h2>Engineer I</h2>
+      <p>engineer@gmail.com</p>
+    </div>
+  </div>
+  <div class="dash-note">
+    <p>*By accessing this page, you are responsible for any manual value changes / billing*</p>
+  </div>
+
+  <div class="table-data">
+    <div class="inits">
+      <h1>Current Register Data</h1>
+      <p>Timestamp: {{init_time}}</p>
+      <table border="1" cellpadding="8" cellspacing="0">
+        <thead>
+          <tr>
+            <th>Register</th>
+            <th>Value</th>
+            <th>Unit</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for name, data in initials.items() %}
+          <tr>
+            <td>{{ name }}</td>
+            <td>{{ data.value }}</td>
+            <td>{{ data.unit }}</td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+
+    <div class="deltas">
+      <h1>Change Since Start of Month</h1>
+      <p>Timestamp: {{delta_time}}</p>
+      <table border="1" cellpadding="8" cellspacing="0">
+        <thead>
+          <tr>
+            <th>Register</th>
+            <th>Accumulated</th>
+            <th>Average</th>
+            <th>Unit</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for name, data in deltas.items() %}
+          <tr>
+            <td>{{ name }}</td>
+            <td>{{ data.accumulated }}</td>
+            <td>{{ data.average }}</td>
+            <td>{{ data.unit }}</td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<section class="tariff">
+  <div class="tariff-header">
+    <h1>Tariff Calculator</h1>
+  </div>
+  <div class="tariff-body">
+    <table>
+      <thead>
+        <tr>
+          <th>Metric</th>
+          <th>Value</th>
+          <th>Unit</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Consumption</td>
+          <td id="consumption"></td>
+          <td>kWh</td>
+        </tr>
+        <tr>
+          <td>Generation</td>
+          <td id="generation"></td>
+          <td>kWh</td>
+        </tr>
+      </tbody></tr>
+    </table>
+
+
+    <div class="tariff-rates">
+      <br>
+      <hr>
+      <p>Enter rates</p>
+      <div class="input-group">
+        <input type="number" name="value" id="value" placeholder="0.0" step="0.1" min="0">
+        <button id="calculate" onclick=tariffCalc()>Calculate</button>
+      </div>
+    </div>
+
+    <br>
+    <hr>
+    <div class="tariff-result">
+      <p>Charge</p>
+      <h2></h2>
+    </div>
+
+    <br>
+    <hr>
+    <div class="tariff-download">
+      <a href="#" onclick="window.print(); return false;">Download Report</a>
+    </div>
+
+</section>
+{% endblock %}
+
+<!--Footer-->
+{% block footer %}
+{% endblock %}
+
+<!--Independent JS-->
+{% block js %}
+<script src="{{url_for('static', filename='js/dashboard/staff.js')}}"></script>
+
+{% endblock %}
